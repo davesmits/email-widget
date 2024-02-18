@@ -1,0 +1,571 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "Container",
+      "$when": "${$root.Items[0].Subject != ''}",
+      "$data": "${Items[0]}",
+      "items": [
+        {
+          "type": "TextBlock",
+          "text": "${Header}",
+          "wrap": true,
+          "separator": true,
+          "style": "heading",
+          "$when": "${Header != ''}"
+        },
+        {
+          "type": "ColumnSet",
+          "columns": [
+            {
+              "type": "Column",
+              "items": [
+                {
+                  "type": "ColumnSet",
+                  "columns": [
+                    {
+                      "type": "Column",
+                      "spacing": "None",
+                      "items": [
+                        {
+                          "type": "TextBlock",
+                          "text": "**${Time}**",
+                          "wrap": true
+                        }
+                      ],
+                      "width": "stretch"
+                    }
+                  ]
+                },
+                {
+                  "type": "TextBlock",
+                  "spacing": "None",
+                  "text": "${Duration}",
+                  "isSubtle": true,
+                  "wrap": true
+                }
+              ],
+              "width": "60px"
+            },
+            {
+              "type": "Column",
+              "backgroundImage": {
+                "url": "https://zealous-coast-000168303.4.azurestaticapps.net/SmallVerticalLineGray.png",
+                "fillMode": "RepeatVertically",
+                "horizontalAlignment": "Center"
+              },
+              "items": [
+                {
+                  "type": "Image",
+                  "horizontalAlignment": "Center",
+                  "url": "${AgendaTypeIcon}",
+                  "altText": ""
+                }
+              ],
+              "width": "auto",
+              "spacing": "None"
+            },
+            {
+              "type": "Column",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "text": "${Subject}",
+                  "wrap": true,
+                  "maxLines": 2,
+                  "weight": "Bolder"
+                },
+                {
+                  "type": "ColumnSet",
+                  "spacing": "None",
+                  "columns": [
+                    {
+                      "type": "Column",
+                      "items": [
+                        {
+                          "type": "Image",
+                          "url": "https://zealous-coast-000168303.4.azurestaticapps.net/location_gray.png",
+                          "altText": "Location",
+                          "$when": "${Location != ''}"
+                        }
+                      ],
+                      "width": "auto"
+                    },
+                    {
+                      "type": "Column",
+                      "items": [
+                        {
+                          "type": "TextBlock",
+                          "text": "${Location}",
+                          "wrap": true,
+                          "maxLines": 2
+                        }
+                      ],
+                      "width": "stretch"
+                    }
+                  ]
+                }
+              ],
+              "width": 40
+            }
+          ],
+          "spacing": "Small"
+        }
+      ]
+    },
+    {
+      "type": "Container",
+      "$when": "${$root.Items[1].Subject != ''}",
+      "$data": "${Items[1]}",
+      "items": [
+        {
+          "type": "TextBlock",
+          "text": "${Header}",
+          "wrap": true,
+          "separator": true,
+          "style": "heading",
+          "$when": "${Header != ''}",
+          "size": "Default"
+        },
+        {
+          "type": "ColumnSet",
+          "columns": [
+            {
+              "type": "Column",
+              "items": [
+                {
+                  "type": "ColumnSet",
+                  "columns": [
+                    {
+                      "type": "Column",
+                      "spacing": "None",
+                      "items": [
+                        {
+                          "type": "TextBlock",
+                          "text": "**${Time}**",
+                          "wrap": true
+                        }
+                      ],
+                      "width": "stretch"
+                    }
+                  ]
+                },
+                {
+                  "type": "TextBlock",
+                  "spacing": "None",
+                  "text": "${Duration}",
+                  "isSubtle": true,
+                  "wrap": true
+                }
+              ],
+              "width": "60px"
+            },
+            {
+              "type": "Column",
+              "backgroundImage": {
+                "url": "https://zealous-coast-000168303.4.azurestaticapps.net/SmallVerticalLineGray.png",
+                "fillMode": "RepeatVertically",
+                "horizontalAlignment": "Center"
+              },
+              "items": [
+                {
+                  "type": "Image",
+                  "horizontalAlignment": "Center",
+                  "url": "${AgendaTypeIcon}",
+                  "altText": ""
+                }
+              ],
+              "width": "auto",
+              "spacing": "None"
+            },
+            {
+              "type": "Column",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "text": "${Subject}",
+                  "wrap": true,
+                  "maxLines": 2,
+                  "weight": "Bolder"
+                },
+                {
+                  "type": "ColumnSet",
+                  "spacing": "None",
+                  "columns": [
+                    {
+                      "type": "Column",
+                      "items": [
+                        {
+                          "type": "Image",
+                          "url": "https://zealous-coast-000168303.4.azurestaticapps.net/location_gray.png",
+                          "altText": "Location",
+                          "$when": "${Location != ''}"
+                        }
+                      ],
+                      "width": "auto"
+                    },
+                    {
+                      "type": "Column",
+                      "items": [
+                        {
+                          "type": "TextBlock",
+                          "text": "${Location}",
+                          "wrap": true,
+                          "maxLines": 2
+                        }
+                      ],
+                      "width": "stretch"
+                    }
+                  ]
+                }
+              ],
+              "width": 40
+            }
+          ],
+          "spacing": "None"
+        }
+      ]
+    },
+    {
+      "type": "Container",
+      "$when": "${$root.Items[2].Subject != ''}",
+      "$data": "${Items[2]}",
+      "items": [
+        {
+          "type": "TextBlock",
+          "text": "${Header}",
+          "wrap": true,
+          "separator": true,
+          "style": "heading",
+          "$when": "${Header != ''}",
+          "size": "Default"
+        },
+        {
+          "type": "ColumnSet",
+          "columns": [
+            {
+              "type": "Column",
+              "items": [
+                {
+                  "type": "ColumnSet",
+                  "columns": [
+                    {
+                      "type": "Column",
+                      "spacing": "None",
+                      "items": [
+                        {
+                          "type": "TextBlock",
+                          "text": "**${Time}**",
+                          "wrap": true
+                        }
+                      ],
+                      "width": "stretch"
+                    }
+                  ]
+                },
+                {
+                  "type": "TextBlock",
+                  "spacing": "None",
+                  "text": "${Duration}",
+                  "isSubtle": true,
+                  "wrap": true
+                }
+              ],
+              "width": "60px"
+            },
+            {
+              "type": "Column",
+              "backgroundImage": {
+                "url": "https://zealous-coast-000168303.4.azurestaticapps.net/SmallVerticalLineGray.png",
+                "fillMode": "RepeatVertically",
+                "horizontalAlignment": "Center"
+              },
+              "items": [
+                {
+                  "type": "Image",
+                  "horizontalAlignment": "Center",
+                  "url": "${AgendaTypeIcon}",
+                  "altText": ""
+                }
+              ],
+              "width": "auto",
+              "spacing": "None"
+            },
+            {
+              "type": "Column",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "text": "${Subject}",
+                  "wrap": true,
+                  "maxLines": 2,
+                  "weight": "Bolder"
+                },
+                {
+                  "type": "ColumnSet",
+                  "spacing": "None",
+                  "columns": [
+                    {
+                      "type": "Column",
+                      "items": [
+                        {
+                          "type": "Image",
+                          "url": "https://zealous-coast-000168303.4.azurestaticapps.net/location_gray.png",
+                          "altText": "Location",
+                          "$when": "${Location != ''}"
+                        }
+                      ],
+                      "width": "auto"
+                    },
+                    {
+                      "type": "Column",
+                      "items": [
+                        {
+                          "type": "TextBlock",
+                          "text": "${Location}",
+                          "wrap": true,
+                          "maxLines": 2
+                        }
+                      ],
+                      "width": "stretch"
+                    }
+                  ]
+                }
+              ],
+              "width": 40
+            }
+          ],
+          "spacing": "None"
+        }
+      ]
+    },
+    {
+      "type": "Container",
+      "$when": "${$root.Items[3].Subject != ''}",
+      "$data": "${Items[3]}",
+      "items": [
+        {
+          "type": "TextBlock",
+          "text": "${Header}",
+          "wrap": true,
+          "separator": true,
+          "style": "heading",
+          "$when": "${Header != ''}",
+          "size": "Default"
+        },
+        {
+          "type": "ColumnSet",
+          "columns": [
+            {
+              "type": "Column",
+              "items": [
+                {
+                  "type": "ColumnSet",
+                  "columns": [
+                    {
+                      "type": "Column",
+                      "spacing": "None",
+                      "items": [
+                        {
+                          "type": "TextBlock",
+                          "text": "**${Time}**",
+                          "wrap": true
+                        }
+                      ],
+                      "width": "stretch"
+                    }
+                  ]
+                },
+                {
+                  "type": "TextBlock",
+                  "spacing": "None",
+                  "text": "${Duration}",
+                  "isSubtle": true,
+                  "wrap": true
+                }
+              ],
+              "width": "60px"
+            },
+            {
+              "type": "Column",
+              "backgroundImage": {
+                "url": "https://zealous-coast-000168303.4.azurestaticapps.net/SmallVerticalLineGray.png",
+                "fillMode": "RepeatVertically",
+                "horizontalAlignment": "Center"
+              },
+              "items": [
+                {
+                  "type": "Image",
+                  "horizontalAlignment": "Center",
+                  "url": "${AgendaTypeIcon}",
+                  "altText": ""
+                }
+              ],
+              "width": "auto",
+              "spacing": "None"
+            },
+            {
+              "type": "Column",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "text": "${Subject}",
+                  "wrap": true,
+                  "maxLines": 2,
+                  "weight": "Bolder"
+                },
+                {
+                  "type": "ColumnSet",
+                  "spacing": "None",
+                  "columns": [
+                    {
+                      "type": "Column",
+                      "items": [
+                        {
+                          "type": "Image",
+                          "url": "https://zealous-coast-000168303.4.azurestaticapps.net/location_gray.png",
+                          "altText": "Location",
+                          "$when": "${Location != ''}"
+                        }
+                      ],
+                      "width": "auto"
+                    },
+                    {
+                      "type": "Column",
+                      "items": [
+                        {
+                          "type": "TextBlock",
+                          "text": "${Location}",
+                          "wrap": true,
+                          "maxLines": 2
+                        }
+                      ],
+                      "width": "stretch"
+                    }
+                  ]
+                }
+              ],
+              "width": 40
+            }
+          ],
+          "spacing": "None"
+        }
+      ]
+    },
+    {
+      "type": "Container",
+      "$when": "${$root.Items[4].Subject != ''}",
+      "$data": "${Items[4]}",
+      "items": [
+        {
+          "type": "TextBlock",
+          "text": "${Header}",
+          "wrap": true,
+          "separator": true,
+          "style": "heading",
+          "$when": "${Header != ''}",
+          "size": "Default"
+        },
+        {
+          "type": "ColumnSet",
+          "columns": [
+            {
+              "type": "Column",
+              "items": [
+                {
+                  "type": "ColumnSet",
+                  "columns": [
+                    {
+                      "type": "Column",
+                      "spacing": "None",
+                      "items": [
+                        {
+                          "type": "TextBlock",
+                          "text": "**${Time}**",
+                          "wrap": true
+                        }
+                      ],
+                      "width": "stretch"
+                    }
+                  ]
+                },
+                {
+                  "type": "TextBlock",
+                  "spacing": "None",
+                  "text": "${Duration}",
+                  "isSubtle": true,
+                  "wrap": true
+                }
+              ],
+              "width": "60px"
+            },
+            {
+              "type": "Column",
+              "backgroundImage": {
+                "url": "https://zealous-coast-000168303.4.azurestaticapps.net/SmallVerticalLineGray.png",
+                "fillMode": "RepeatVertically",
+                "horizontalAlignment": "Center"
+              },
+              "items": [
+                {
+                  "type": "Image",
+                  "horizontalAlignment": "Center",
+                  "url": "${AgendaTypeIcon}",
+                  "altText": ""
+                }
+              ],
+              "width": "auto",
+              "spacing": "None"
+            },
+            {
+              "type": "Column",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "text": "${Subject}",
+                  "wrap": true,
+                  "maxLines": 2,
+                  "weight": "Bolder"
+                },
+                {
+                  "type": "ColumnSet",
+                  "spacing": "None",
+                  "columns": [
+                    {
+                      "type": "Column",
+                      "items": [
+                        {
+                          "type": "Image",
+                          "url": "https://zealous-coast-000168303.4.azurestaticapps.net/location_gray.png",
+                          "altText": "Location",
+                          "$when": "${Location != ''}"
+                        }
+                      ],
+                      "width": "auto"
+                    },
+                    {
+                      "type": "Column",
+                      "items": [
+                        {
+                          "type": "TextBlock",
+                          "text": "${Location}",
+                          "wrap": true,
+                          "maxLines": 2
+                        }
+                      ],
+                      "width": "stretch"
+                    }
+                  ]
+                }
+              ],
+              "width": 40
+            }
+          ],
+          "spacing": "None"
+        }
+      ]
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.6"
+}

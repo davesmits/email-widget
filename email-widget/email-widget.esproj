@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/0.5.94-alpha">
+  <PropertyGroup>
+    <StartupCommand>npm run dev</StartupCommand>
+    <JavaScriptTestRoot>src\</JavaScriptTestRoot>
+    <JavaScriptTestFramework>Jest</JavaScriptTestFramework>
+    <!-- Allows the build (or compile) script located on package.json to run on Build -->
+    <ShouldRunBuildScript>false</ShouldRunBuildScript>
+    <!-- Command to create an optimized build of the project that's ready for publishing -->
+    <ProductionBuildCommand>npm run build</ProductionBuildCommand>
+    <!-- Folder where production build objects will be placed -->
+    <BuildOutputFolder>$(MSBuildProjectDirectory)\dist</BuildOutputFolder>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include=".github\workflows\publish.yaml" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties public_4manifest_1json__JsonSchema="https://w3c.github.io/manifest/" />
+    </VisualStudio>
+  </ProjectExtensions>
+  <ItemGroup>
+    <TypeScriptConfiguration Remove=".github\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove=".github\**" />
+  </ItemGroup>
+</Project>

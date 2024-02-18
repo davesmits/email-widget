@@ -1,0 +1,78 @@
+{
+  "name": "Email Widget",
+  "short_name": "Email Widget",
+  "id": "emailwidget",
+  "start_url": "./",
+  "lang": "en-US",
+  "display": "standalone",
+  "theme_color": "#ff0000",
+  "dir": "auto",
+  "background_color": "#ffffff",
+  "scope": "./",
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  },
+  "orientation": "any",
+  "description": "A email widget providing widgets for Windows 11",
+  "icons": [
+    {
+      "src": "schedule.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "./screenshot.png",
+      "sizes": "463x703",
+      "platform": "wide",
+      "label": "The main PWAmp user interface, showing a list of songs, and playback buttons."
+    }
+  ],
+  "widgets": [
+    {
+      "name": "Email Widget",
+      "short_name": "Email Widget",
+      "description": "widget to see your email",
+      "tag": "emailwidget",
+      "ms_ac_template": "widgets/email-template.json",
+      "data": "widgets/email-data.json",
+      "update": 900,
+      "screenshots": [
+        {
+          "src": "./screenshot.png",
+          "sizes": "463x703",
+          "label": "Email Widget"
+        }
+      ],
+      "icons": [
+        {
+          "src": "./favicon-48.png",
+          "sizes": "48x48"
+        },
+        {
+          "src": "./favicon-96.png",
+          "sizes": "96x96"
+        },
+        {
+          "src": "./favicon-128.png",
+          "sizes": "128x128"
+        },
+        {
+          "src": "./favicon-256.png",
+          "sizes": "256x256"
+        },
+        {
+          "src": "./favicon-512.png",
+          "sizes": "512x512"
+        }
+      ],
+      "backgrounds": [
+        {
+          "src": "./widgets/background.png",
+          "sizes": "600x400"
+        }
+      ]
+    }
+  ]
+}

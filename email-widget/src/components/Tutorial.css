@@ -1,0 +1,14 @@
+.example{
+    max-height: 600px;
+    float: left;
+    margin-right: 20px;
+}
+
+.logo{
+    height: 100px;
+    float:right;
+}
+
+li {
+   font-size: 18px;
+}
