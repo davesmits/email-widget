@@ -8,7 +8,7 @@ interface ITutorialProps {
 export const Tutorial: React.FunctionComponent<ITutorialProps> = (props: ITutorialProps) => {
 
     return (<>
-        <img src="/schedule.png" alt="logo" className="logo" />
+        <img src="/favicon-512.png" alt="logo" className="logo" />
 
 
         <h1>How to use the app</h1>
