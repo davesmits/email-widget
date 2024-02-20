@@ -15,7 +15,7 @@ export class WidgetManager {
         const accountDatabase = new AccountDatabase(self.indexedDB);
         const accounts = await accountDatabase.getAccounts();
 
-        const allItems: ICalendarResponse[] = [];
+        const allItems: IMailMessage[] = [];
 
         for (const account of accounts) {
 
@@ -35,11 +35,7 @@ export class WidgetManager {
                 await accountDatabase.updateAccount(account);
             }
 
-            const startDate = new Date(Date.now());
-            const endDate = new Date(Date.now());
-            endDate.setTime(endDate.getTime() + (5 * 24 * 60 * 60 * 1000));
-
-            const response = await fetch(`https://graph.microsoft.com/v1.0/me/calendarview?startdatetime=${startDate.toLocaleString('en-US', { timeZone: 'UTC' })}&enddatetime=${endDate.toLocaleString('en-US', { timeZone: 'UTC' })}&$select=subject,bodyPreview,organizer,start,end,location,isAllDay,onlineMeeting&$top=20`, {
+            const response = await fetch(`https://graph.microsoft.com/v1.0/me/mailFolders/Inbox/messages?$select=subject,bodyPreview,importance,isRead,from,receivedDateTime&$top=5`, {
                 headers: {
                     'Authorization': `bearer ${account.access_token}`,
                     'Accept': 'application/json'
@@ -54,7 +50,7 @@ export class WidgetManager {
         }
 
         allItems.sort(function (a, b) {
-            return Date.parse(a.start.dateTime) - Date.parse(b.start.dateTime);
+            return a.receivedDateTime.getTime() - b.receivedDateTime.getTime()
         });
 
         const template = await (await fetch(widget.definition.msAcTemplate)).text();
@@ -62,44 +58,15 @@ export class WidgetManager {
 
         let count = 0;
 
-        let lastHeader = '';
 
         for (const a of allItems) {
 
-            const start = new Date(`${a.start.dateTime}Z`);
-            const startTimeString = a.isAllDay ? 'All day' : `${start.getHours().toLocaleString('en-Us', {
-                minimumIntegerDigits: 2,
-                useGrouping: false
-            })}:${start.getMinutes().toLocaleString('en-Us', {
-                minimumIntegerDigits: 2,
-                useGrouping: false
-            })}`;
-
-            const duration = new Date(new Date(`${a.end.dateTime}Z`).getTime() - start.getTime());
-            const durationText = a.isAllDay ? '' : duration.getUTCHours() > 0 ? `${duration.getUTCHours().toLocaleString('en-Us', {
-                minimumIntegerDigits: 2,
-                useGrouping: false
-            })}h ${duration.getUTCMinutes().toLocaleString('en-Us', {
-                minimumIntegerDigits: 2,
-                useGrouping: false
-            })}m` : `${duration.getUTCMinutes().toLocaleString('en-Us', {
-                minimumIntegerDigits: 2,
-                useGrouping: false
-            })}m`;
-
-            const header = isToday(start) ? 'Today' :
-                isTomorrow(start) ? 'Tomorrow' : start.toLocaleDateString();
-
-            data.Items[count].Time = startTimeString;
-            data.Items[count].Duration = durationText;
-            data.Items[count].AgendaTypeIcon = a.onlineMeeting === null ? 'https://zealous-coast-000168303.4.azurestaticapps.net/CircleGreen.png' : 'https://zealous-coast-000168303.4.azurestaticapps.net/CirclePurple_teams.png';
-            data.Items[count].Subject = a.subject;
-            data.Items[count].Location = a?.location?.displayName ?? null;
-
-            if (lastHeader !== header) {
-                lastHeader = header;
-                data.Items[count].Header = header;
-            }
+            data.Items[count].ReceivedDateTime = a.receivedDateTime;
+            data.Items[count].IsRead = a.isRead;
+            data.Items[count].Importance = a.importance;
+            data.Items[count].From = a.from?.name ?? a.from?.address ?? "";
+            data.Items[count].Subject = a.subject ?? '';
+            data.Items[count].BodyPreview = a.bodyPreview ?? '';
 
             count++;
             if (count > 4)
@@ -110,41 +77,19 @@ export class WidgetManager {
     }
 }
 
-function isToday(date: Date) {
-    return sameDay(date, new Date(Date.now()));
-}
-
-function isTomorrow(date: Date) {
-    const tomorrow = new Date(Date.now() + (1000 * 60 * 60 * 24));
-    return sameDay(date, tomorrow);
-}
-
-function sameDay(d1: Date, d2: Date) : boolean {
-    return d1.getUTCFullYear() == d2.getUTCFullYear() &&
-        d1.getUTCMonth() == d2.getUTCMonth() &&
-        d1.getUTCDate() == d2.getUTCDate();
-}
 
 
-interface ICalendarResponse {
+
+interface IMailMessage {
     bodyPreview: string | null;
     subject: string | null;
-    start: OutlookDate;
-    end: OutlookDate;
-    location: ILocation | undefined;
-    isAllDay: boolean | undefined;
-    onlineMeeting: IOnlineMeeting | null;
+    importance: string | null;
+    isRead: boolean;
+    receivedDateTime: Date;
+    from: User | null;
 }
 
-interface OutlookDate {
-    dateTime: string;
-    timeZone: string;
-}
-
-interface ILocation {
-    displayName: string | null;
-}
-
-interface IOnlineMeeting {
-    joinUrl: string;
+interface User {
+    name: string | null;
+    address: string | null;
 }

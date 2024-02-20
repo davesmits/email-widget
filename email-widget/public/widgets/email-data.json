@@ -1,44 +1,44 @@
 {
   "Items": [
     {
-      "Time": "",
-      "Duration": "",
-      "AgendaTypeIcon": "",
+      "ReceivedDateTime": "",
+      "IsRead": null,
+      "Importance": "",
+      "From": "",
       "Subject": "",
-      "Location": "",
-      "Header": ""
+      "BodyPreview": ""
     },
     {
-      "Time": "",
-      "Duration": "",
-      "AgendaTypeIcon": "",
+      "ReceivedDateTime": "",
+      "IsRead": null,
+      "Importance": "",
+      "From": "",
       "Subject": "",
-      "Location": "",
-      "Header": ""
+      "BodyPreview": ""
     },
     {
-      "Time": "",
-      "Duration": "",
-      "AgendaTypeIcon": "",
+      "ReceivedDateTime": "",
+      "IsRead": null,
+      "Importance": "",
+      "From": "",
       "Subject": "",
-      "Location": "",
-      "Header": ""
+      "BodyPreview": ""
     },
     {
-      "Time": "",
-      "Duration": "",
-      "AgendaTypeIcon": "",
+      "ReceivedDateTime": "",
+      "IsRead": null,
+      "Importance": "",
+      "From": "",
       "Subject": "",
-      "Location": "",
-      "Header": ""
+      "BodyPreview": ""
     },
     {
-      "Time": "",
-      "Duration": "",
-      "AgendaTypeIcon": "",
+      "ReceivedDateTime": "",
+      "IsRead": null,
+      "Importance": "",
+      "From": "",
       "Subject": "",
-      "Location": "",
-      "Header": ""
+      "BodyPreview": ""
     }
   ]
 }
