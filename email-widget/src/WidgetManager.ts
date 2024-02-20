@@ -50,7 +50,7 @@ export class WidgetManager {
         }
 
         allItems.sort(function (a, b) {
-            return new Date(a.receivedDateTime).getTime() - new Date(b.receivedDateTime).getTime()
+            return new Date(b.receivedDateTime).getTime() - new Date(a.receivedDateTime).getTime()
         });
 
         const template = await (await fetch(widget.definition.msAcTemplate)).text();
