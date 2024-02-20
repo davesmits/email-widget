@@ -64,7 +64,7 @@ export class WidgetManager {
             data.Items[count].ReceivedDateTime = a.receivedDateTime;
             data.Items[count].IsRead = a.isRead;
             data.Items[count].Importance = a.importance;
-            data.Items[count].From = a.from?.emailAdress?.name ?? a.from?.emailAdress?.address ?? "";
+            data.Items[count].From = a.from?.emailAddress?.name ?? a.from?.emailAddress?.address ?? "";
             data.Items[count].Subject = a.subject ?? '';
             data.Items[count].BodyPreview = a.bodyPreview ?? '';
 
@@ -90,7 +90,7 @@ interface IMailMessage {
 }
 
 interface MailAccount {
-    emailAdress: User | null;
+    emailAddress: User | null;
 }
 
 interface User {
