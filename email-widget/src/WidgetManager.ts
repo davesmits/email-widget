@@ -50,7 +50,7 @@ export class WidgetManager {
         }
 
         allItems.sort(function (a, b) {
-            return a.receivedDateTime.getTime() - b.receivedDateTime.getTime()
+            return new Date(a.receivedDateTime).getTime() - new Date(b.receivedDateTime).getTime()
         });
 
         const template = await (await fetch(widget.definition.msAcTemplate)).text();
@@ -85,7 +85,7 @@ interface IMailMessage {
     subject: string | null;
     importance: string | null;
     isRead: boolean;
-    receivedDateTime: Date;
+    receivedDateTime: string;
     from: User | null;
 }
 
