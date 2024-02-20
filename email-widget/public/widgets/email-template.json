@@ -17,7 +17,8 @@
           "type": "TextBlock",
           "text": "${Subject}",
           "wrap": true,
-          "spacing": "None"
+          "spacing": "None",
+          "maxLines": 1
         },
         {
           "type": "TextBlock",
@@ -45,7 +46,8 @@
           "type": "TextBlock",
           "text": "${Subject}",
           "wrap": true,
-          "spacing": "None"
+          "spacing": "None",
+          "maxLines": 1
         },
         {
           "type": "TextBlock",
@@ -73,7 +75,8 @@
           "type": "TextBlock",
           "text": "${Subject}",
           "wrap": true,
-          "spacing": "None"
+          "spacing": "None",
+          "maxLines": 1
         },
         {
           "type": "TextBlock",
@@ -101,7 +104,8 @@
           "type": "TextBlock",
           "text": "${Subject}",
           "wrap": true,
-          "spacing": "None"
+          "spacing": "None",
+          "maxLines": 1
         },
         {
           "type": "TextBlock",
@@ -129,7 +133,8 @@
           "type": "TextBlock",
           "text": "${Subject}",
           "wrap": true,
-          "spacing": "None"
+          "spacing": "None",
+          "maxLines": 1
         },
         {
           "type": "TextBlock",
