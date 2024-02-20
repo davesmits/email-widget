@@ -6,7 +6,7 @@ const url = self.location.origin;
 
 const settings: OidcClientSettings = {
     authority: 'https://login.microsoftonline.com/common',
-    client_id: '69627cef-ce41-4861-8418-7f336d6d1321',
+    client_id: '7a470bb0-e6ff-43e7-9c65-8358ecab5370',
     redirect_uri: url,
     post_logout_redirect_uri: url,
     response_type: 'code',
@@ -25,7 +25,7 @@ export class AuthenticationService {
         const optionalArgs = {
             prompt: 'select_account',
             resource: 'https://graph.microsoft.com',
-            scope: 'https://graph.microsoft.com/Mail.Read offline_access profile openid'
+            scope: settings.scope
         };
 
         const req = await client.createSigninRequest(optionalArgs);

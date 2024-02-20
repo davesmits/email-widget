@@ -13,6 +13,9 @@ namespace email_widget_functions
     {
         public static HttpClient _httpClient = new();
 
+        private const string ClientId = "7a470bb0-e6ff-43e7-9c65-8358ecab5370";
+        private const string ClientSecret = "07.8Q~Rx1gpMjO1srxJoL8Vt3uFTna-3DN4t3cLh";
+
         [FunctionName("ExchangeAuthorizationCodeToAccessToken")]
         public static async Task<IActionResult> ExchangeAuthorizationCodeToAccessToken(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
@@ -28,8 +31,8 @@ namespace email_widget_functions
                 Content = new FormUrlEncodedContent(new Dictionary<string, string>()
                 {
                     {"grant_type", "authorization_code" },
-                    {"client_id", "69627cef-ce41-4861-8418-7f336d6d1321" },
-                    {"client_secret", "pyY8Q~CFc5QRFrEI-lqdHkBhkCdZAqBitO8MYcDh" },
+                    {"client_id", ClientId },
+                    {"client_secret", ClientSecret },
                     {"scope", scope },
                     {"code", code },
                     {"redirect_uri", redirect_uri },
@@ -54,8 +57,8 @@ namespace email_widget_functions
                 Content = new FormUrlEncodedContent(new Dictionary<string, string>()
                 {
                     {"grant_type", "refresh_token" },
-                    {"client_id", "69627cef-ce41-4861-8418-7f336d6d1321" },
-                    {"client_secret", "pyY8Q~CFc5QRFrEI-lqdHkBhkCdZAqBitO8MYcDh" },
+                    {"client_id", ClientId },
+                    {"client_secret", ClientSecret },
                     {"scope", scope },
                     {"refresh_token", refresh_token },
                 })
