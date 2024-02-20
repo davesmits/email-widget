@@ -86,10 +86,10 @@ interface IMailMessage {
     importance: string | null;
     isRead: boolean;
     receivedDateTime: string;
-    from: Account | null;
+    from: MailAccount | null;
 }
 
-interface Account {
+interface MailAccount {
     emailAdress: User | null;
 }
 
