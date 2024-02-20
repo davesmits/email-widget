@@ -24,7 +24,7 @@
   "screenshots": [
     {
       "src": "./screenshot.png",
-      "sizes": "463x703",
+      "sizes": "466x699",
       "platform": "wide",
       "label": "The main PWAmp user interface, showing a list of songs, and playback buttons."
     }
@@ -41,7 +41,7 @@
       "screenshots": [
         {
           "src": "./screenshot.png",
-          "sizes": "463x703",
+          "sizes": "466x699",
           "label": "Email Widget"
         }
       ],
